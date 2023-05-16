@@ -18,6 +18,17 @@ const App = () => {
                 newNumbers.push(startNumbers[randomIndex]);
                 startNumbers.splice(randomIndex, 1);
             }
+            // newNumbers.sort((a, b) => a - b);
+
+            for (let i: number = 0; i < newNumbers.length; i++) {
+                for (let j: number = 0; j < newNumbers.length; j++) {
+                    if (newNumbers[j] > newNumbers[j + 1]) {
+                        const min: number = newNumbers[j + 1]
+                        newNumbers[j + 1] = newNumbers[j];
+                        newNumbers[j] = min;
+                    }
+                }
+            }
             setNumbers(newNumbers);
         } else {
             alert('Номера закончились!');
